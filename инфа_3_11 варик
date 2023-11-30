@@ -1,0 +1,34 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main() {
+    char continueInput = 'Y';
+    while (continueInput == 'Y') {
+        int numDates;
+        cout << "Dates sorting" << std::endl;
+        cout << "Input the number of dates:";
+        cin >> numDates;
+
+        vector<std::string> dates;
+        string tempDate;
+
+        for (int i = 0; i < numDates; i++) {
+            cout << "Input the date #" << i + 1 << " (DD.MM.YYYY):";
+            cin >> tempDate;
+            dates.push_back(tempDate);
+        }
+
+        sort(dates.begin(), dates.end());
+
+        cout << "Result:" << std::endl;
+        for (const auto& date : dates) {
+            cout << date << std::endl;
+        }
+
+        cout << "Continue? (Y/N):";
+        cin >> continueInput;
+    }
+
+    return 0;
+}
