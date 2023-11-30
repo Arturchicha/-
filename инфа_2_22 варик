@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    bool flag = 1;
+    while (flag == 1) {
+
+        cout << "Alloys volume calculator" << endl;
+        setlocale(LC_ALL, "Rus");
+        cout << "Input a proportion in the first alloy>" << endl;
+        double a;
+        cin >> a;
+        cout << "Input a proportion in the second alloy>" << endl;
+        double b;
+        cin >> b;
+        cout << "Input a required proportion>" << endl;
+        double c;
+        cin >> c;
+        cout << "Input a required volume>" << endl;
+        double v;
+        cin >> v;
+        double aa = a / (a + 1.0);
+        double bb = b / (b + 1.0);
+        double cc = c / (c + 1.0);
+        double x = (cc - bb) / (aa - bb);
+        double y = 1 - x;
+        cout << "Volume of the first alloy: " << endl;
+        cout << x * v << endl;
+        cout << "Volume of the second alloy: " << endl;
+        cout << y * v << endl;
+        cout << endl << "Wanna repeat ?, press 1: " << endl;
+        cin >> flag;
+
+    }
+}
