@@ -1,0 +1,52 @@
+
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+void xorCrypt(string inputFile, string outputFile) {
+    ifstream fin(inputFile);
+    ofstream fout(outputFile);
+    char key = 'K'; // ключ для шифрования/расшифрования
+
+    char ch;
+    while (fin.get(ch)) {
+        ch = ch ^ key; // операция xor шифрования/расшифрования
+        fout << ch;
+    }
+
+    fin.close();
+    fout.close();
+}
+
+int main() {
+    string command, inputFile, outputFile;
+    char cont = 'Y';
+
+    while (cont == 'Y') {
+        cout << "Input a command (encrypt/decrypt): ";
+        cin >> command;
+        cout << "Input a source filename: ";
+        cin >> inputFile;
+        cout << "Input a destination filename: ";
+        cin >> outputFile;
+
+        if (command == "encrypt") {
+            xorCrypt(inputFile, outputFile);
+            cout << "Operation has been completed successfully" << endl;
+        }
+        else if (command == "decrypt") {
+            xorCrypt(inputFile, outputFile);
+            cout << "Operation has been completed successfully" << endl;
+        }
+        else {
+            cout << "Invalid command" << endl;
+        }
+
+        cout << "Continue? (Y/N): ";
+        cin >> cont;
+    }
+
+    return 0;
+}
